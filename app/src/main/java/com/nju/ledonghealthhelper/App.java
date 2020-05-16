@@ -1,0 +1,6 @@
+package com.nju.ledonghealthhelper;
+
+import android.app.Application;
+
+public class App extends Application {
+}

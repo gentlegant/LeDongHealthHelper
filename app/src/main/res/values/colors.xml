@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBackground">#789CDE</color>
-    <color name="colorSportEventBg">#DFE6F9</color>
+    <color name="colorBlue2">#DFE6F9</color>
+    <color name="colorBlue1">#AEC0E0</color>
+    <color name="colorBlack">@android:color/black</color>
 </resources>

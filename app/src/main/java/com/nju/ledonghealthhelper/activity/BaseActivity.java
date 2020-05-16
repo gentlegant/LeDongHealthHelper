@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.PersistableBundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +33,7 @@ abstract class BaseActivity extends AppCompatActivity {
     private FrameLayout root;
     private ProgressBar progressBar;
     private boolean clickEmptyHideKeyBoard = false;
+    private String toolbarTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +45,15 @@ abstract class BaseActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
         root = (FrameLayout) getWindow().getDecorView();
+    }
+
+    protected void setToolbarTitle(String title) {
+        if (title != null) {
+            if (toolbar != null) {
+                toolbar.setTitle(title);
+                setSupportActionBar(toolbar);
+            }
+        }
     }
 
 
