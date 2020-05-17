@@ -1,18 +1,36 @@
 package com.nju.ledonghealthhelper.model;
 
 public class SportEvent {
-    private String userName;
+    private int id;
+    private int creatorId;
+    private String creatorName;
     private long pubTime;
     private String sportType;
     private String pubLocation;
     private String pubContent;
 
-    public String getUserName() {
-        return userName;
+    public int getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(int creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getCreatorName() {
+        return creatorName;
+    }
+
+    public void setCreatorName(String creatorName) {
+        this.creatorName = creatorName;
     }
 
     public long getPubTime() {

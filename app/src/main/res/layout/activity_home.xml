@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="30dp"
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
         android:paddingBottom="30dp"
@@ -29,9 +30,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sport_event_rv"
+
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:paddingBottom="80dp"
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sport_event_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@color/colorBlue1">
+
+            <ImageButton
+                android:src="@mipmap/profile"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageButton
+                android:src="@mipmap/chatting"
+                android:padding="9dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageButton
+                android:id="@+id/setting_ibtn"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:src="@mipmap/setting"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+
+    </FrameLayout>
+
 
 </LinearLayout>

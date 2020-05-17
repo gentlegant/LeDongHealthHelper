@@ -3,6 +3,7 @@ package com.nju.ledonghealthhelper.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -38,17 +39,22 @@ public class LDEditText extends LinearLayout {
         initView(context,attrs,defStyleAttr,defStyleRes);
     }
 
-    @SuppressLint("ResourceType")
+    @SuppressLint("ResourceAsColor")
     private void initView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         layoutInflater = LayoutInflater.from(getContext());
         Drawable bg = getResources().getDrawable(R.drawable.ld_edit_text_bg,null);
         setBackground(bg);
         setOrientation(LinearLayout.HORIZONTAL);
-        setPadding(dp2Px(12),dp2Px(6),dp2Px(12),dp2Px(6));
+        setPadding(dp2Px(12),0,dp2Px(12),0);
         leftTV = new TextView(context);
         leftTV.setTextColor(R.color.colorBlack);
-        editText = new EditText(context,attrs,defStyleAttr,defStyleRes);
+        editText = new EditText(context,attrs);
+        editText.setBackground(null);
+        editText.setMaxLines(1);
+        editText.setInputType(InputType.TYPE_CLASS_TEXT);
         editText.setTextColor(R.color.colorBlack);
+        editText.setGravity(Gravity.CENTER_VERTICAL);
+        editText.setTextSize(sp2px(6));
         LinearLayout.LayoutParams pLeft = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.MATCH_PARENT);
         pLeft.setMargins(0,0,dp2Px(10),0);
         leftTV.setLayoutParams(pLeft);
@@ -72,8 +78,20 @@ public class LDEditText extends LinearLayout {
         return px;
     }
 
+    protected int sp2px(float spValue) {
+        final float fontScale = getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
     public String getText() {
         return editText.getText().toString();
     }
 
+    public void setText(String text) {
+        editText.setText(text);
+    }
+
+    public void setEditable(boolean b){
+        editText.setFocusable(b);
+    }
 }

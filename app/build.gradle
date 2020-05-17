@@ -37,4 +37,6 @@ dependencies {
     implementation 'pub.devrel:easypermissions:3.0.0'
     //view
     implementation 'com.android.support:recyclerview-v7:28.1.1'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
 }

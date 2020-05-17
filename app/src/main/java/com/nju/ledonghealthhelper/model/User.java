@@ -1,8 +1,9 @@
 package com.nju.ledonghealthhelper.model;
 
 public class User {
+    private int id;
     private String account;
-    private String nickName;
+    private String userName;
     private String gender;
     private String description;
     private String hobby;
@@ -12,6 +13,14 @@ public class User {
     private int question2;
     private int question3;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getAccount() {
         return account;
     }
@@ -20,12 +29,12 @@ public class User {
         this.account = account;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getGender() {
@@ -90,5 +99,22 @@ public class User {
 
     public void setQuestion3(int question3) {
         this.question3 = question3;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", userName='" + userName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", description='" + description + '\'' +
+                ", hobby='" + hobby + '\'' +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", question1=" + question1 +
+                ", question2=" + question2 +
+                ", question3=" + question3 +
+                '}';
     }
 }

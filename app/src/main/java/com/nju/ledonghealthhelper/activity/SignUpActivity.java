@@ -1,5 +1,6 @@
 package com.nju.ledonghealthhelper.activity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -30,6 +31,11 @@ public class SignUpActivity extends BaseActivity {
         userNameET.setLeftText("昵称");
         setToolbarTitle("用户注册");
         enableBack();
+
+    }
+
+    private void requestPermissions(){
+        String[] perms = {Manifest.permission.INTERNET};
     }
 
     @Override
@@ -58,7 +64,7 @@ public class SignUpActivity extends BaseActivity {
         API.hasUserExisted(account, new OnRequestCallBack<Boolean>() {
             @Override
             public void onSuccess(Boolean b) {
-                if (b) {
+                if (!b) {
                     API.signUp(account, password, userName, new OnRequestCallBack<Boolean>() {
                         @Override
                         public void onSuccess(Boolean aBoolean) {

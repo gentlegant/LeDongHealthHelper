@@ -10,15 +10,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SqlTask extends AsyncTask<String,Integer,ResultSet> {
-    private String url = "jdbc:mysql://116.62.100.110:3306/newdb";
-    private String user = "root";
-    private String password = "thepassword";
-    private static Connection connection;
+public class QuerySqlTask extends BaseSqlTask<String,Integer,ResultSet> {
     private OnSqlExecutingListener onSqlExecutingListener;
     @Override
     protected ResultSet doInBackground(String... strings) {
         String sql = strings[0];
+        LogUtils.d("mysql","sql:"+sql);
         if (connection == null) {
             if (!connectMysql()) {
                 return null;
@@ -48,21 +45,11 @@ public class SqlTask extends AsyncTask<String,Integer,ResultSet> {
             }
         }
         try {
-            resultSet.close();
+            if (resultSet != null) {
+                resultSet.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }
-
-    private synchronized boolean connectMysql(){
-        try {
-            connection = DriverManager.getConnection(url,user,password);
-            LogUtils.d("Mysql","connect successfully");
-            return true;
-        } catch (SQLException e) {
-            LogUtils.d("Mysql","connect unsuccessfully");
-            e.printStackTrace();
-            return false;
         }
     }
 

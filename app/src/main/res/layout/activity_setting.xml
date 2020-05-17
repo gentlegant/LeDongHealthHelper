@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <com.nju.ledonghealthhelper.view.LDEditText
+        android:layout_marginTop="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:id="@+id/account_et"
+        android:layout_width="260dp"
+        android:layout_height="40dp"/>
+
+    <com.nju.ledonghealthhelper.view.LDEditText
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/account_et"
+        android:id="@+id/user_name_et"
+        android:layout_width="260dp"
+        android:layout_height="40dp"/>
+
+    <com.nju.ledonghealthhelper.view.LDEditText
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_name_et"
+        android:id="@+id/gender_et"
+        android:layout_width="260dp"
+        android:layout_height="40dp"/>
+
+    <com.nju.ledonghealthhelper.view.LDEditText
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gender_et"
+        android:id="@+id/description_et"
+        android:layout_width="260dp"
+        android:layout_height="40dp"/>
+
+    <com.nju.ledonghealthhelper.view.LDEditText
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description_et"
+        android:id="@+id/hobby_et"
+        android:layout_width="260dp"
+        android:layout_height="40dp"/>
+
+    <com.nju.ledonghealthhelper.view.LDEditText
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hobby_et"
+        android:id="@+id/phone_et"
+        android:layout_width="260dp"
+        android:layout_height="40dp"/>
+
+    <Button
+        android:layout_marginTop="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_et"
+        android:id="@+id/summit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提交"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

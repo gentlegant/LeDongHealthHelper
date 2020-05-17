@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nju.ledonghealthhelper.R;
 import com.nju.ledonghealthhelper.model.SportEvent;
-import com.nju.ledonghealthhelper.view.SportEventItem;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import butterknife.BindView;
@@ -49,8 +49,9 @@ public class SportEventListAdapter extends RecyclerView.Adapter<SportEventListAd
         }
         SportEvent sportEvent = sportEvents.get(position);
         if (sportEvent != null) {
-            holder.userNameTV.setText(sportEvent.getUserName());
-            holder.pubTimeTV.setText(sportEvent.getPubTime()+"");
+            holder.userNameTV.setText(sportEvent.getCreatorName());
+            SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH:mm:ss");
+            holder.pubTimeTV.setText( sdf.format(sportEvent.getPubTime()));
             holder.sportTypeTV.setText(sportEvent.getSportType());
             holder.pubLocationTV.setText(sportEvent.getPubLocation());
             holder.pubContentTV.setText(sportEvent.getPubContent());
