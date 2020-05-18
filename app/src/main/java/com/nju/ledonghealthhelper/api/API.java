@@ -30,7 +30,7 @@ public class API {
             sql = String.format(sql,hobby);
         }
         if (phone != null && phone.length() > 0) {
-            sql += "phone= %s',";
+            sql += "phone= '%s',";
             sql = String.format(sql,phone);
         }
         sql = sql.substring(0,sql.length()-1);

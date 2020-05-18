@@ -39,6 +39,10 @@ public class LDEditText extends LinearLayout {
         initView(context,attrs,defStyleAttr,defStyleRes);
     }
 
+    public void setInputType(int inputType){
+        editText.setInputType(inputType);
+    }
+
     @SuppressLint("ResourceAsColor")
     private void initView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         layoutInflater = LayoutInflater.from(getContext());

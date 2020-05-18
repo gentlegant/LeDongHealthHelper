@@ -2,6 +2,7 @@ package com.nju.ledonghealthhelper.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class SignInActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         accountET.setLeftText("账号");
         passwordET.setLeftText("密码");
+        passwordET.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
 
     @Override
