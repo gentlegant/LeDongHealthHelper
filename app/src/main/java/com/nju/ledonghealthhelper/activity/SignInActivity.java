@@ -45,7 +45,8 @@ public class SignInActivity extends BaseActivity {
     void signIn(){
         final String account = accountET.getText();
         final String password = passwordET.getText();
-        if (account == null || password == null) {
+        if (account.length() == 0 || password.length() == 0) {
+            Toast.makeText(getApplicationContext(),"账号密码为空",Toast.LENGTH_SHORT).show();
             return;
         }
         showDefaultProgressBar();
@@ -63,6 +64,12 @@ public class SignInActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(),"账号密码错误",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @OnClick({R.id.forgot_password_tv})
+    void startRetrievePasswordActivity(){
+        Intent intent = new Intent(this,RetrievePasswordActivity.class);
+        startActivity(intent);
     }
 
     void signInSuccess(){

@@ -20,28 +20,29 @@ import pub.devrel.easypermissions.EasyPermissions;
 public abstract class BaseLocationActivity extends BaseActivity  implements EasyPermissions.PermissionCallbacks {
 
 
-    protected LocationClient mLocationClient = null;
+    protected static LocationClient mLocationClient = null;
     private LDLocationListener ldLocationListener = new LDLocationListener();
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLocationClient = new LocationClient(getApplicationContext());
-        mLocationClient.registerLocationListener(ldLocationListener);
-        LocationClientOption option = new LocationClientOption();
+        if (mLocationClient == null) {
+            mLocationClient = new LocationClient(getApplicationContext());
+            mLocationClient.registerLocationListener(ldLocationListener);
+            LocationClientOption option = new LocationClientOption();
 
-        option.setIsNeedAddress(true);
+            option.setIsNeedAddress(true);
 //可选，是否需要地址信息，默认为不需要，即参数为false
 //如果开发者需要获得当前点的地址信息，此处必须为true
 
-        option.setNeedNewVersionRgc(true);
+            option.setNeedNewVersionRgc(true);
 //可选，设置是否需要最新版本的地址信息。默认需要，即参数为true
 
-        mLocationClient.setLocOption(option);
+            mLocationClient.setLocOption(option);
 //mLocationClient为第二步初始化过的LocationClient对象
 //需将配置好的LocationClientOption对象，通过setLocOption方法传递给LocationClient对象使用
 //更多LocationClientOption的配置，请参照类参考中LocationClientOption类的详细说明
+        }
     }
 
     protected void startLocation() {
@@ -59,15 +60,6 @@ public abstract class BaseLocationActivity extends BaseActivity  implements Easy
 
     protected boolean isLocationStarted() {
         return mLocationClient.isStarted();
-    }
-
-
-    private void locationReal() {
-        if (!mLocationClient.isStarted()) {
-            mLocationClient.start();
-        }else {
-            mLocationClient.stop();
-        }
     }
 
 

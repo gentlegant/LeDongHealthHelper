@@ -10,6 +10,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class API {
+
+    public static void resetPassword(String account,String password,OnRequestCallBack<Boolean> onRequestCallBack) {
+        final String rawSql = "update user set password='%s' where account='%s'";
+        final String sql = String.format(rawSql,password,account);
+        UpdateSqlTask updateSqlTask = new UpdateSqlTask();
+        updateSqlTask.setOnSqlExecutingListener(new UpdateSqlTask.OnSqlExecutingListener() {
+            @Override
+            public void onSuccess() {
+                if (onRequestCallBack != null) {
+                    onRequestCallBack.onSuccess(true);
+                }
+            }
+
+            @Override
+            public void onFailure() {
+                if (onRequestCallBack != null) {
+                    onRequestCallBack.onFailure();
+                }
+            }
+        });
+        updateSqlTask.execute(sql);
+
+    }
+    public static void validateAnswer(String account, String answer1, String answer2, OnRequestCallBack<Boolean> onRequestCallBack) {
+        final String rawSql = "select * from user where account='%s' and answer1='%s' and answer2='%s'";
+        final String sql = String.format(rawSql, account,answer1,answer2);
+        QuerySqlTask querySqlTask = new QuerySqlTask();
+        querySqlTask.setOnSqlExecutingListener(new QuerySqlTask.OnSqlExecutingListener() {
+            @Override
+            public void onSuccess(ResultSet resultSet) {
+                if (getResultNum(resultSet) == 1) {
+                    if (onRequestCallBack != null) {
+                        onRequestCallBack.onSuccess(true);
+                    }
+                } else {
+                    if (onRequestCallBack != null) {
+                        onRequestCallBack.onSuccess(false);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure() {
+                if (onRequestCallBack != null) {
+                    onRequestCallBack.onFailure();
+                }
+            }
+        });
+        querySqlTask.execute(sql);
+    }
+
+
     public static void updateSetting(int id,String username,String gender,String description,String hobby,String phone,
                                      OnRequestCallBack<Boolean> onRequestCallBack) {
         String sql = "update user set ";
