@@ -79,7 +79,7 @@ public class API {
     }
 
     public static void requestAllSportEvents(OnRequestCallBack<List<SportEvent>> onRequestCallBack) {
-        final String rawSql = "select * from sport_event";
+        final String rawSql = "select * from sport_event order by time desc";
         final String sql = rawSql;
         QuerySqlTask querySqlTask = new QuerySqlTask();
         querySqlTask.setOnSqlExecutingListener(new QuerySqlTask.OnSqlExecutingListener() {

@@ -54,7 +54,7 @@ public class LDEditText extends LinearLayout {
         editText.setInputType(InputType.TYPE_CLASS_TEXT);
         editText.setTextColor(R.color.colorBlack);
         editText.setGravity(Gravity.CENTER_VERTICAL);
-        editText.setTextSize(sp2px(6));
+        editText.setTextSize(sp2px(5));
         LinearLayout.LayoutParams pLeft = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.MATCH_PARENT);
         pLeft.setMargins(0,0,dp2Px(10),0);
         leftTV.setLayoutParams(pLeft);

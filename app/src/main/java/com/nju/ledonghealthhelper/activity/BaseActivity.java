@@ -1,6 +1,9 @@
 package com.nju.ledonghealthhelper.activity;
 
+import android.Manifest;
 import android.content.Context;
+import android.location.Criteria;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -27,7 +30,7 @@ import com.nju.ledonghealthhelper.R;
 import butterknife.ButterKnife;
 import pub.devrel.easypermissions.EasyPermissions;
 
-abstract class BaseActivity extends AppCompatActivity {
+abstract class BaseActivity extends AppCompatActivity  {
 
     private Toolbar toolbar;
     private FrameLayout root;
@@ -45,6 +48,7 @@ abstract class BaseActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
         root = (FrameLayout) getWindow().getDecorView();
+        enableClickEmptyHideSoftKeyBoard();
     }
 
     protected void setToolbarTitle(String title) {

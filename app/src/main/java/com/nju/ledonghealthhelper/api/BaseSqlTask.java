@@ -9,9 +9,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class BaseSqlTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
-    private String url = "jdbc:mysql://192.168.31.173:3306/ledong_health_helper_db?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8";
-    private String user = "root";
-    private String password = "a412793689";
+    private String url = "jdbc:mysql://116.62.100.110:3306/test2?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8";
+//    private String user = "root";
+//    private String password = "a412793689";
+    private String user = "user";
+    private String password = "123456";
     protected static Connection connection;
     protected synchronized boolean connectMysql(){
         try {
