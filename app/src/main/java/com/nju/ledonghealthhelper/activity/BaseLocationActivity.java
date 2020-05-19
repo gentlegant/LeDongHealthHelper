@@ -20,13 +20,12 @@ import pub.devrel.easypermissions.EasyPermissions;
 public abstract class BaseLocationActivity extends BaseActivity  implements EasyPermissions.PermissionCallbacks {
 
 
-    protected static LocationClient mLocationClient = null;
+    protected LocationClient mLocationClient = null;
     private LDLocationListener ldLocationListener = new LDLocationListener();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (mLocationClient == null) {
             mLocationClient = new LocationClient(getApplicationContext());
             mLocationClient.registerLocationListener(ldLocationListener);
             LocationClientOption option = new LocationClientOption();
@@ -42,7 +41,6 @@ public abstract class BaseLocationActivity extends BaseActivity  implements Easy
 //mLocationClient为第二步初始化过的LocationClient对象
 //需将配置好的LocationClientOption对象，通过setLocOption方法传递给LocationClient对象使用
 //更多LocationClientOption的配置，请参照类参考中LocationClientOption类的详细说明
-        }
     }
 
     protected void startLocation() {

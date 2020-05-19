@@ -193,9 +193,10 @@ public class API {
                             user.setAccount(resultSet.getString(2));
                             user.setPassword(resultSet.getString(3));
                             user.setUserName(resultSet.getString(4));
-                            user.setDescription(resultSet.getString(5));
-                            user.setHobby(resultSet.getString(6));
-                            user.setPhone(resultSet.getString(7));
+                            user.setGender(resultSet.getString(5));
+                            user.setDescription(resultSet.getString(6));
+                            user.setHobby(resultSet.getString(7));
+                            user.setPhone(resultSet.getString(8));
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
@@ -218,9 +219,9 @@ public class API {
 
     }
 
-    public static void signUp(String account, String password, String userName, OnRequestCallBack<Boolean> onRequestCallBack) {
-        final String rawSql = "insert into user (account,password,username) values ('%s','%s','%s')";
-        final String sql = String.format(rawSql, account, password, userName);
+    public static void signUp(String account, String password, String userName,String answer1,String answer2, OnRequestCallBack<Boolean> onRequestCallBack) {
+        final String rawSql = "insert into user (account,password,username,answer1,answer2) values ('%s','%s','%s','%s','%s')";
+        final String sql = String.format(rawSql, account, password, userName,answer1,answer2);
         UpdateSqlTask updateSqlTask = new UpdateSqlTask();
         updateSqlTask.setOnSqlExecutingListener(new UpdateSqlTask.OnSqlExecutingListener() {
             @Override

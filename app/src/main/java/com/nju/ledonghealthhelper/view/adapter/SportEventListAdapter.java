@@ -1,12 +1,15 @@
 package com.nju.ledonghealthhelper.view.adapter;
 
 import android.content.Context;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -79,10 +82,22 @@ public class SportEventListAdapter extends RecyclerView.Adapter<SportEventListAd
         TextView pubContentTV;
         @BindView(R.id.comment_et)
         EditText commentET;
+        @BindView(R.id.send_ibtn)
+        ImageButton sendIBtn;
 
         public SportEventItemViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            sendIBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (commentET.getText().length() == 0 ){
+                        return;
+                    }
+                    commentET.setText("");
+                    Toast.makeText(context,"发送成功",Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
     }

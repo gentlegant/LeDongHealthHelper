@@ -52,7 +52,7 @@ public class SettingActivity extends BaseActivity {
         enableBack();
     }
 
-    @OnClick({R.id.summit_btn})
+    @OnClick({R.id.next_btn})
     void summitSetting() {
         User user = App.getUser();
         final String userName = userNameET.getText();
@@ -70,6 +70,7 @@ public class SettingActivity extends BaseActivity {
                 user.setDescription(description);
                 user.setHobby(hobby);
                 user.setPhone(phone);
+                Toast.makeText(getApplicationContext(),"修改成功",Toast.LENGTH_SHORT).show();
                 finish();
             }
 

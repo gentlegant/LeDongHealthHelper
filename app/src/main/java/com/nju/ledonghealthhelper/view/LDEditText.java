@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -67,6 +68,8 @@ public class LDEditText extends LinearLayout {
         pRight.weight = 1;
         editText.setLayoutParams(pRight);
         editText.setGravity(Gravity.CENTER_VERTICAL);
+        editText.setImeOptions(EditorInfo.IME_ACTION_GO);
+        editText.setMaxLines(1);
         addView(leftTV);
         addView(editText);
         setGravity(Gravity.CENTER_VERTICAL);
@@ -91,6 +94,9 @@ public class LDEditText extends LinearLayout {
         return editText.getText().toString();
     }
 
+    public void  setImeOption(int option) {
+        editText.setImeOptions(option);
+    }
     public void setText(String text) {
         editText.setText(text);
     }
